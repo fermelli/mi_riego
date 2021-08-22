@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HumidityController;
+use App\Http\Controllers\MeasurementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HumidityController::class, 'index']);
-Route::post('/import', [HumidityController::class, 'import'])->name('import');
+Route::get('/', [MeasurementController::class, 'index']);
+Route::post('/import', [MeasurementController::class, 'import'])->name('import');

@@ -13,14 +13,17 @@
                 <input type="submit" value="Upload">
             </p>
         </form>
-        @if (count($humidities) == 0)
+        @if (count($measurements) == 0)
             <p>No hay registros</p>            
         @else
         <table border="1">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Humedad</th>
+                    <th>Humedad del Suelo</th>
+                    <th>Humedad Relativa</th>
+                    <th>Temperatura °C</th>
+                    <th>Temperatura °F</th>
                     <th>Marca de Tiempo</th>
                 </tr>
             </thead>
@@ -28,14 +31,17 @@
                 @php
                     $counter = 0;
                 @endphp
-                @foreach ($humidities as $humidity)
+                @foreach ($measurements as $measurement)
                     @php
                         $counter ++;   
                     @endphp
                     <tr>
                         <th>{{ $counter }}</th>
-                        <td>{{ $humidity->value }}</td>
-                        <td>{{ $humidity->timestamp }}</td>
+                        <td>{{ $measurement->soil_humidity }}</td>
+                        <td>{{ $measurement->relative_humidity }}</td>
+                        <td>{{ $measurement->temperature_in_degrees_centigrade }}</td>
+                        <td>{{ $measurement->temperature_in_degrees_fahrenheit }}</td>
+                        <td>{{ $measurement->timestamp }}</td>
                     </tr>
                 @endforeach
             </tbody>
